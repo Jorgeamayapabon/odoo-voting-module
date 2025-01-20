@@ -1,0 +1,24 @@
+web_template = '''
+<odoo>
+    <template id="student_voting_page" name="Student Voting Page">
+        <t t-call="web.layout">
+            <div class="oe_structure">
+                <h1>Votación para Estudiantes</h1>
+                <t t-if="voting_process">
+                    <p>Selecciona un candidato:</p>
+                    <ul>
+                        <t t-foreach="voting_process.candidates" t-as="candidate">
+                            <li>
+                                <form action="/vote" method="post">
+                                    <input type="hidden" name="candidate_id" t-att-value="candidate.id"/>
+                                    <button type="submit">Votar por <t t-esc="candidate.name"/></button>
+                                </form>
+                            </li>
+                        </t>
+                    </ul>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>
+'''
