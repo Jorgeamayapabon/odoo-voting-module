@@ -1,4 +1,4 @@
-manifest = {
+{
     'name': "University Voting System",
     'version': "1.0",
     'depends': ['base', 'web'],
